@@ -1,0 +1,248 @@
+<html>
+  <head>
+    <title>JavaScript Sankey Diagram</title>
+    <script src="java1.js"></script>
+    <script src="java2.js"></script>
+    
+    <style type="text/css">      
+      html, body, #container { 
+        width: 100%; height: 130%; margin: 0; padding: 0; 
+      } 
+      .anychart-credits-text{
+        display:none !important;
+      }
+      .anychart-credits-logo{
+        display: none !important;
+      }
+    
+    </style>
+  </head>
+  <body>  
+    <div id="container"></div>
+    <script>
+      anychart.onDocumentReady(function () {
+  
+        // add data
+        const data = [
+
+        //data for NON- traditional products
+        {from: "Total Increase ($ Million)", to: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", value: 212},
+        {from: "Total Increase ($ Million)", to: "Cuttle Fish, Bovine & Sheep Meat, <br> Frozen Fish", value: 105},
+        {from: "Total Increase ($ Million)", to: "Tractors", value: 18},
+        {from: "Total Increase ($ Million)", to: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", value: 146},
+        {from: "Total Increase ($ Million)", to: "Hair Oil Prod, Medicaments, <br> Cleaning Agents", value: 28},
+        {from: "Total Increase ($ Million)", to: "Talc, Salt, Flourspar", value: 30},
+        {from: "Total Increase ($ Million)", to: "Copper and Aluminum Prods", value: 18},
+        {from: "Total Increase ($ Million)", to: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items", value: 65},
+        {from: "Total Increase ($ Million)", to: "Tires & Parts and Rubber <br> Gloves", value: 14},
+        {from: "Total Increase ($ Million)", to: "Fans, Glass (Bottles, Float, <br> Drinking), Diapers", value: 24},
+        {from: "Total Increase ($ Million)", to: "Battery Parts and Electric <br> Conductors", value: 15},
+        {from: "Total Increase ($ Million)", to: "PVC, Polethlene&styrene <br> & Prods", value: 38},
+      
+
+        //data for woen cloth
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "TANZANIA", value: 38},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "MOZAMBIQUE", value: 31},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "DENMARK", value: 14},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "CONGO", value: 11},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "MALAWI", value: 11},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "SWEDEN", value: 8},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "CHILE", value: 7},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "NORWAY", value: 5},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "ANGOLA", value: 14},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "THAILAND", value: 20},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "PHILIPPINES", value: 10},
+
+
+
+        //data for catle fish
+        {from: "Cuttle Fish, Bovine & Sheep Meat, <br> Frozen Fish", to: "THAILAND", value: 40},
+        {from: "Cuttle Fish, Bovine & Sheep Meat, <br> Frozen Fish", to: "HONGKONG", value: 21},
+ 
+        //data for tractors
+        {from: "Tractors", to: "ANGOLA", value: 11},
+        {from: "Tractors", to: "BOTSWANA", value: 3},
+
+        //data for talk salt
+        {from: "Talc, Salt, Flourspar", to: "THAILAND", value: 5},
+        
+
+
+
+         //data for tabaco
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items", to: "THAILAND", value: 14},
+
+         //data for onion
+         {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "PHILIPPINES", value: 15},
+
+          //data for others
+          {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers", to: "Others", value: 24},
+          {from: "Cuttle Fish, Bovine & Sheep Meat, <br> Frozen Fish", to: "Others", value: 13},
+          {from: "Tractors", to: "Others", value: 7},
+          {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "Others", value: 19},
+          {from: "Hair Oil Prod, Medicaments, <br> Cleaning Agents", to: "Others", value: 9},
+          {from: "Talc, Salt, Flourspar", to: "Others", value: 9},
+          {from: "Copper and Aluminum Prods", to: "Others", value: 13},
+          {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items", to: "Others", value: 14},
+          {from: "Tires & Parts and Rubber <br> Gloves", to: "Others", value: 8},
+          {from: "Battery Parts and Electric <br> Conductors", to: "Others", value: 5},
+          {from: "PVC, Polethlene&styrene <br> & Prods", to: "Others", value: 6},
+          
+          //data for south africa
+        {from: "PVC, Polethlene&styrene <br> & Prods", to: "SOUTH AFRICA", value: 6},
+        {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers",to: "SOUTH AFRICA", value: 5},
+        
+        
+        //data for RUssia
+        {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "RUSSIA", value: 33},
+ 
+        
+        //data for south koria
+        {from: "Cuttle Fish, Bovine & Sheep Meat, <br> Frozen Fish", to: "S KOREA", value: 35},
+        {from: "Talc, Salt, Flourspar", to: "S KOREA", value: 18},
+        {from: "Fans, Glass (Bottles, Float, <br> Drinking), Diapers", to: "S KOREA", value: 15},
+        {from: "Tires & Parts and Rubber <br> Gloves", to: "S KOREA", value: 12},
+
+        //data for Iraq
+        {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "IRAQ", value: 6},
+
+         //data for MALYSIA
+         {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "MALAYSIA", value: 33},
+         {from: "Talc, Salt, Flourspar", to: "MALAYSIA", value: 17},
+         {from: "Tires & Parts and Rubber <br> Gloves", to: "MALAYSIA", value: 10},
+
+
+         //DATA FO PHILLIPINES
+         {from: "Hair Oil Prod, Medicaments, <br> Cleaning Agents",to: "PHILIPPINES", value: 7},
+
+
+         //DATA FO azbakistan
+         {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms", to: "UZBEKISTAN", value: 8},
+         {from: "Hair Oil Prod, Medicaments, <br> Cleaning Agents", to: "UZBEKISTAN", value: 6},
+
+         
+         //DATA FO OMAN
+         {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms",to: "OMAN", value: 15},
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "OMAN", value: 8},
+         {from: "Battery Parts and Electric <br> Conductors",to: "OMAN", value: 10},
+
+         //DATA FO BRAZIL
+         {from: "Worn Clothing, MMF Bed Linen, <br> Jute Products, Men Trousers",to: "BRAZIL", value: 8},
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "BRAZIL", value: 7},
+         
+         //DATA FO QATAR
+         {from: "Onion, Citrus Hybrids, Dried Banana, <br> Mango Pulp, Mushrooms",to: "QATAR", value: 9},
+         {from: "Hair Oil Prod, Medicaments, <br> Cleaning Agents",to: "QATAR", value: 7},
+         {from: "Talc, Salt, Flourspar",to: "QATAR", value: 5},
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "QATAR", value: 6},
+         {from: "Fans, Glass (Bottles, Float, <br> Drinking), Diapers",to: "QATAR", value: 6},
+         {from: "Battery Parts and Electric <br> Conductors",to: "QATAR", value: 4},
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "QATAR", value: 4},
+
+         //DATA FO S AFRICA
+         {from: "Tractors",to: "S AFRICA", value: 8},
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "S AFRICA", value: 8},
+         
+         //DATA FO S YEMEN
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "YEMEN", value: 24},
+         
+         //DATA FO S DJIBOUTI
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "DJIBOUTI", value: 3},
+         {from: "Tires & Parts and Rubber <br> Gloves",to: "DJIBOUTI", value: 3},
+
+         
+         //DATA FO HONG KONG
+         {from: "Talc, Salt, Flourspar",to: "HONG KONG", value: 15},
+         {from: "Copper and Aluminum Prods",to: "HONG KONG", value: 8},
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "HONG KONG", value: 9},
+
+         //DATA FO NIGERIA
+         {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "NIGERIA", value: 6},
+         {from: "Battery Parts and Electric <br> Conductors",to: "NIGERIA", value: 8},
+         
+          //DATA FO BAHRAIN
+          {from: "Tobacco, Food Preparations, <br> Preserved Fish, Bakery Items",to: "BAHRAIN", value: 5},
+         {from: "Battery Parts and Electric <br> Conductors",to: "BAHRAIN", value: 3},
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "BAHRAIN", value: 2},
+         
+         //DATA FO EGYPT
+         {from: "PVC, Polethlene&styrene <br> & Prods",to: "EGYPT", value: 4},
+         {from: "Tires & Parts and Rubber <br> Gloves",to: "EGYPT", value: 2},
+        
+
+
+        ];
+  
+        // create a sankey diagram instance
+        let chart = anychart.sankey();
+
+        // load the data to the sankey diagram instance
+        chart.data(data);
+
+        // set the chart's padding
+        chart.padding(20, 30);
+
+        // configure a custom color palette
+        chart.palette([
+          "#adcde5",
+          "#837ab9",
+          "#99eb99",
+          "#e86625",
+          "#aa96b4",
+          "#aadda5",
+          "#e19196",
+          "#419bd2",
+          "#46afaa",
+          "#5a5050"
+        ]);
+  
+        // customize the nodes:
+        // set the width
+        chart.nodeWidth("40%");
+    
+       
+        // set the padding
+        chart.nodePadding(10);
+        // customize the labels
+        chart.node().normal().labels().fontSize(11);
+        
+        chart.node().labels().useHtml(true);
+        chart
+          .node()
+          .labels().hAlign("center")
+          .format("<span style='font-weight:bold'>{%name}</span> : {%value}");
+
+        // customize the links
+        chart.flow({
+          normal: {
+            fill: function () {
+              return anychart.color.lighten(this.sourceColor, 0.5) + " " + 0.3;
+            }
+          },
+          hovered: {
+            fill: function () {
+              return this.sourceColor + " " + 0.8;
+            }
+          }
+        });
+
+        // add a title and customize it
+        chart
+          .title()
+          .enabled(true)
+          .useHtml(true)
+          .text(
+            '<span style = "color: #2b2b2b; font-size:20px;">Increase in Non-Traditional Products in Non-Traditional </span>' +
+              '<br/><span style="color:#00bfa5; font-size: 16px;">Markets - ($ Million)</span>'
+          );
+  
+        // set the chart container id
+        chart.container("container");
+
+        // draw the chart
+        chart.draw();
+  
+      });
+    </script>
+  </body>
+</html>
